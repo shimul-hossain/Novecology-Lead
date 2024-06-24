@@ -1,0 +1,35 @@
+/* Contact Section Style */
+.contact{
+    &__col{
+        padding-left: toRem(15);
+        padding-right: toRem(15);
+    }
+    &__card{
+        &__icon{
+            width: toRem(62);
+            height: toRem(62);
+            color: $color-primary;
+            border: 2px solid $color-primary;
+            font-size: toRem(30);
+            margin-right: toRem(20);
+        }
+        &__title{
+            font-size: toRem(18);
+            font-family: $font-primary--sb;
+        }
+        &__number,
+        &__text{
+            color: $color-primary;
+        }
+        &__number{
+            font-size: toRem(27);
+            font-family: $font-primary--sb;
+            @include mobile{
+                font-size: toRem(24);
+            }
+        }
+        &__text{
+            font-family: $font-primary--li;
+        }
+    }
+}

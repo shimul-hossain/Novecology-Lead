@@ -1,0 +1,127 @@
+/* Custom Fonts Link */
+@font-face {
+    font-family: 'SF Pro Display Thin';
+    src: url('../fonts/sf-pro-display/SFProDisplay-Thin.eot');
+    src: local('SF Pro Display Thin'), local('SFProDisplay-Thin'),
+        url('../fonts/sf-pro-display/SFProDisplay-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/sf-pro-display/SFProDisplay-Thin.woff2') format('woff2'),
+        url('../fonts/sf-pro-display/SFProDisplay-Thin.woff') format('woff'),
+        url('../fonts/sf-pro-display/SFProDisplay-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display Light';
+    src: url('../fonts/sf-pro-display/SFProDisplay-Light.eot');
+    src: local('SF Pro Display Light'), local('SFProDisplay-Light'),
+        url('../fonts/sf-pro-display/SFProDisplay-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/sf-pro-display/SFProDisplay-Light.woff2') format('woff2'),
+        url('../fonts/sf-pro-display/SFProDisplay-Light.woff') format('woff'),
+        url('../fonts/sf-pro-display/SFProDisplay-Light.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display Regular';
+    src: url('../fonts/sf-pro-display/SFProDisplay-Regular.eot');
+    src: local('SF Pro Display Regular'), local('SFProDisplay-Regular'),
+        url('../fonts/sf-pro-display/SFProDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/sf-pro-display/SFProDisplay-Regular.woff2') format('woff2'),
+        url('../fonts/sf-pro-display/SFProDisplay-Regular.woff') format('woff'),
+        url('../fonts/sf-pro-display/SFProDisplay-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display Medium';
+    src: url('../fonts/sf-pro-display/SFProDisplay-Medium.eot');
+    src: local('SF Pro Display Medium'), local('SFProDisplay-Medium'),
+        url('../fonts/sf-pro-display/SFProDisplay-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/sf-pro-display/SFProDisplay-Medium.woff2') format('woff2'),
+        url('../fonts/sf-pro-display/SFProDisplay-Medium.woff') format('woff'),
+        url('../fonts/sf-pro-display/SFProDisplay-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display Semibold';
+    src: url('../fonts/sf-pro-display/SFProDisplay-Semibold.eot');
+    src: local('SF Pro Display Semibold'), local('SFProDisplay-Semibold'),
+        url('../fonts/sf-pro-display/SFProDisplay-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/sf-pro-display/SFProDisplay-Semibold.woff2') format('woff2'),
+        url('../fonts/sf-pro-display/SFProDisplay-Semibold.woff') format('woff'),
+        url('../fonts/sf-pro-display/SFProDisplay-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display Bold';
+    src: url('../fonts/sf-pro-display/SFProDisplay-Bold.eot');
+    src: local('SF Pro Display Bold'), local('SFProDisplay-Bold'),
+        url('../fonts/sf-pro-display/SFProDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/sf-pro-display/SFProDisplay-Bold.woff2') format('woff2'),
+        url('../fonts/sf-pro-display/SFProDisplay-Bold.woff') format('woff'),
+        url('../fonts/sf-pro-display/SFProDisplay-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display Heavy';
+    src: url('../fonts/sf-pro-display/SFProDisplay-Heavy.eot');
+    src: local('SF Pro Display Heavy'), local('SFProDisplay-Heavy'),
+        url('../fonts/sf-pro-display/SFProDisplay-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/sf-pro-display/SFProDisplay-Heavy.woff2') format('woff2'),
+        url('../fonts/sf-pro-display/SFProDisplay-Heavy.woff') format('woff'),
+        url('../fonts/sf-pro-display/SFProDisplay-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KenyanCoffee Regular';
+    src: local('KenyanCoffee-Regular'), url('../fonts/kenyan-coffee/kenyan-coffee.woff') format('woff');
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* Custom Icons Link */
+@import url(../fonts/novecologie-icons/style.css);
+
+/* Typography Reset */
+h1,.h1,
+h2,.h2{
+    font-family: $font-primary--bd;
+}
+h3,.h3,
+h4,.h4,
+h5,.h5,
+h6,.h6{
+    font-family: $font-primary;
+}
+h1,.h1{
+    font-size: toRem(36);
+}
+h2,.h2{
+    font-size: toRem(30);
+}
+h3,.h3{
+    font-size: toRem(24);
+}
+h4,.h4{
+    font-size: toRem(18);
+}
+h5,.h5{
+    font-size: toRem(12);
+}
+p{
+    font-size: toRem(16);
+    @include mobile{
+        font-size: toRem(14);
+    }
+}

@@ -1,0 +1,402 @@
+/* Header Section Style */
+.header{
+	top: 0;
+	z-index: 9;
+	width: 100%;
+	.navbar{
+		@include mobile{
+			padding-left: 0;
+			padding-right: 0;
+		}
+		@include min-desktop-xl{
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		&-brand{
+			// @include desktop-lg-to-desktop-xxl{
+			// 	display: none;
+			// }
+			@include tablet{
+				display: none;
+			}
+		}
+		&-toggler{
+			font-size: toRem(24);
+			color: $color-primary;
+			@extend %transition;
+			&:hover{
+				color: $color-danger;
+			}
+			@include min-tablet{
+				order: 1;
+			}
+		}
+		&-expand-xl{
+			@include desktop-xl{
+				.navbar{
+					&-toggler{
+						display: block;
+					}
+					&-nav{
+						flex-direction: column;
+					}
+				}
+			}
+		}
+		&-collapse{
+			--space: 20px;
+			z-index: 1;
+			&__header{
+				padding: 0 var(--space);
+				@include min-desktop-xl{
+					display: none;
+				}
+			}
+			@include desktop-xl{
+				position: fixed;
+				top: 0;
+				left: 0;
+				transform: translateX(-100%);
+				transition: transform ease-in-out .3s;
+				height: 100%;
+				min-height: 100vh;
+				padding-top: var(--space);
+				padding-bottom: var(--space);
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: space-between;
+				background-color: $color-white;
+				min-width: toRem(200);
+				overflow-y: auto;
+				@include mobile{
+					width: 100%;
+				}
+				&.show{
+					transform: translateX(0);
+				}
+				.navbar-nav{
+					padding: calc(var(--space) * 2) var(--space);
+					overflow-y: auto;
+					margin-top: auto;
+					margin-bottom: auto;
+				}
+			}
+		}
+		&-nav{
+			@include desktop-xl{
+				width: 100%;
+				.nav-item{
+					margin: 0.3rem 0;
+				}
+			}
+		}
+		.nav{
+			&-item{
+				.dropdown{
+					&-toggle{
+						&::after{
+							display: none;
+						}
+					}
+					&-menu{
+						display: block;
+						transform: translateX(0) translateY(20%);
+						opacity: 0;
+						visibility: hidden;
+						padding: toRem(5);
+						box-shadow: 0 0 toRem(15) rgba($color-black, $alpha: 0.09);
+						@extend %transition;
+						@include tablet{
+							width: 90%;
+							left: 50%;
+							transform: translateX(-50%) translateY(20%);
+						}
+						&__body{
+							height: 100%;
+							max-height: 275px;
+							overflow-y: auto;
+						}
+						&.show{
+							transform: translateX(0) translateY(0);
+							opacity: 1;
+							visibility: visible;
+							@include tablet{
+								transform: translateX(-50%) translateY(0);
+							}
+						}
+						&--language{
+							min-width: max-content;
+							max-width: fit-content;
+							left: 50%;
+							transform: translateX(-50%) translateY(20%);
+							&.show{
+								transform: translateX(-50%) translateY(0);
+							}
+						}
+						&--notification{
+							@include min-tablet{
+								left: initial;
+								right: 0;
+								min-width: 25rem;
+							}
+							.dropdown{
+								&-menu{
+									&__header{
+										border-bottom: 1px solid darken($color-white, $amount: 10);
+									}
+									&__title{
+										color: lighten($color-black, $amount: 10);
+										font-size: toRem(20);
+									}
+								}
+								&-item{
+									white-space: initial;
+									&__image{
+										width: toRem(42);
+										height: toRem(42);
+										@include mobile-xxs{
+											width: toRem(30);
+											height: toRem(30);
+										}
+									}
+									&__title{
+										font-size: toRem(16);
+										font-family: $font-primary--sb;
+										@include mobile-xxs{
+											font-size: toRem(14);
+										}
+									}
+									&__text{
+										font-size: toRem(14);
+										@include mobile-xxs{
+											font-size: toRem(12);
+										}
+									}
+									&__trash-btn{
+										font-size: toRem(18);
+										cursor: pointer;
+										@extend %transition;
+										&:hover{
+											color: $color-danger;
+										}
+									}
+									&:hover ~ .dropdown-item__trash-btn{
+										color: $color-danger;
+									}
+								}
+							}
+						}
+					}
+					&-item{
+						&:not(:last-child){
+							margin-bottom: toRem(5);
+						}
+						border-radius: .25rem;
+						padding-top: toRem(10);
+						padding-bottom: toRem(10);
+						display: inline-block;
+						color: lighten($color-black, $amount: 20);
+						@extend %transition;
+						&.active{
+							background-color: rgba($color-purple, $alpha: 0.1);
+						}
+						&:active,
+						&:hover,
+						&:focus{
+							color: $color-white;
+							background-color: lighten($color-primary, $amount: 10);
+						}
+					}
+				}
+				&.dropdown{
+					@include tablet{
+						position: initial;
+					}
+				}
+			}
+			&-link{
+				position: relative;
+				color: $color-primary;
+				font-size: 1rem;
+				font-family: $font-primary;
+				padding: toRem(22) toRem(35);
+				@include desktop-17{
+					padding: toRem(22) toRem(20);
+				}
+				@include desktop-xl{
+					padding: toRem(15) toRem(20);
+				}
+				@include mobile{
+					text-align: center;
+				}
+				@extend %transition;
+				&::after{
+					content:"";
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background: linear-gradient( 45deg, lighten($color-primary, $amount: 8), lighten($color-primary, $amount: 15));
+					@include min-desktop-xl{
+						height: 3px;
+						background: $color-pink;
+					}
+					@include desktop-xl{
+						border-radius: 8px;
+					}
+					z-index: -1;
+					opacity: 0;
+					@extend %transition;
+				}
+				&.active,
+				&:hover,
+				&:focus-visible{
+					color: $color-white;
+					@include min-desktop-xl{
+						color: $color-primary;
+					}
+					&::after{
+						opacity: 1;
+					}
+				}
+				&.active{
+					font-family: $font-primary--bd;
+				}
+			}
+		}
+		&-account{
+			&__nav{
+				.nav-item:not(:last-child){
+					margin-right: toRem(5);
+					@include min-mobile-xxs{
+						margin-right: toRem(10);
+					}
+				}
+			}
+			&__link{
+				color: $color-primary;
+				padding: toRem(10);
+				.notification{
+					&--icon{
+						font-size: toRem(18);
+						&.active{
+							animation: activeNotification 4s .5s ease-in-out infinite;
+							transform-origin: 50% 4px;
+						}
+						
+					}
+					&--counter{
+						top: 0;
+						right: 0;
+						transform: translateY(-10%);
+						width: toRem(20);
+						height: toRem(20);
+						font-size: toRem(14);
+						background-color: $color-danger;
+					}
+				}
+				&:focus-visible ~ .dropdown-menu{
+					transform: translateY(0);
+					opacity: 1;
+					visibility: visible;
+					&--language{
+						transform: translateX(-50%) translateY(0);
+					}
+				}
+			}
+			.notification{
+				transform: translateY(10%);
+			}
+			&__user{
+				&--avator{
+					width: toRem(42);
+					height: toRem(42);
+				}
+				&--name{
+					margin: 0 toRem(18);
+					@include mobile-xxs{
+						display: none;
+					}
+				}
+			}
+			.dropdown-icon{
+				font-size: toRem(18);
+			}
+		}
+	}
+	&--fixed{
+		box-shadow: 0 toRem(4) toRem(15) rgba($color-black, $alpha: 0.03);
+	}
+}
+
+// .page-wrapper{
+// 	@include desktop-lg-to-desktop-xxl{
+// 		.header{
+// 			width: calc(100% - var(--navbar-collapse-width));
+// 		}
+// 	}
+// }
+
+.modal-open{
+	.header{
+		width: calc(100% - var(--scrollbar-width));
+	}
+	// .page-wrapper{
+	// 	@include desktop-lg-to-desktop-xxl{
+	// 		.header{
+	// 			width: calc(100% - var(--navbar-collapse-width) - var(--scrollbar-width));
+	// 		}
+	// 	}
+	// }
+	
+}
+
+/* Off Canvas Navbar Toggler */
+.offCanvasMenuCloser{
+	top: 0;
+	left: 0;
+	transform: translateX(100%);
+	width: 100%;
+	height: 100%;
+	background: rgba($color: #000000, $alpha: 0.5);
+	z-index: 8;
+	opacity: 0;
+	transition: opacity .4s ease .4s;
+	&.show{
+		transform: translateX(0);
+		opacity: 1;
+	}
+	@include min-desktop-xl{
+		display: none;
+	}
+}
+
+/* Active Notification Animation */
+@keyframes activeNotification {
+	0% { transform: rotate(0); }
+	1% { transform: rotate(30deg); }
+	3% { transform: rotate(-28deg); }
+	5% { transform: rotate(34deg); }
+	7% { transform: rotate(-32deg); }
+	9% { transform: rotate(30deg); }
+	11% { transform: rotate(-28deg); }
+	13% { transform: rotate(26deg); }
+	15% { transform: rotate(-24deg); }
+	17% { transform: rotate(22deg); }
+	19% { transform: rotate(-20deg); }
+	21% { transform: rotate(18deg); }
+	23% { transform: rotate(-16deg); }
+	25% { transform: rotate(14deg); }
+	27% { transform: rotate(-12deg); }
+	29% { transform: rotate(10deg); }
+	31% { transform: rotate(-8deg); }
+	33% { transform: rotate(6deg); }
+	35% { transform: rotate(-4deg); }
+	37% { transform: rotate(2deg); }
+	39% { transform: rotate(-1deg); }
+	41% { transform: rotate(1deg); }
+	43% { transform: rotate(0); }
+	100% { transform: rotate(0); }
+}

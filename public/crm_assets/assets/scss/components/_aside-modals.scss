@@ -1,0 +1,94 @@
+/* Common Aside Modal's Style */
+.modal{
+    &--aside{
+        .modal{
+            &-content{
+                overflow-y: auto;
+            }
+            &-header .close{
+                color: $color-blue;
+                opacity: 1;
+                font-size: toRem(14);
+                width: toRem(35);
+                height: toRem(35);
+                text-shadow: none;
+                border: 2px solid $color-blue;
+                @extend %transition;
+                &:hover,
+                &:focus{
+                    opacity: 1;
+                    color: $color-white;
+                    background-color: $color-blue;
+                }
+            }
+            &-title,
+            &-text,
+            &-sub-title{
+                color: $color-blue;
+            }
+            &-title,
+            &-sub-title{
+                font-family: $font-primary--bd;
+            }
+            &-title{
+                font-size: toRem(23);
+            }
+            &-text{
+                font-family: $font-primary--li;
+            }
+            &-sub-title{
+                font-size: toRem(18);
+                margin-bottom: 2rem;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    transform: translateY(200%);
+                    width: 3%;
+                    height: 2px;
+                    background-color: $color-orange;
+                }
+            }
+        }
+        .form .custom-control{
+            margin-bottom: toRem(10);
+            &-label{
+                font-size: toRem(15) ;
+            }
+        }
+    }
+}
+
+.leftAsideModal,
+.rightAsideModal{
+    .modal{
+        &-dialog{
+            position: fixed !important;
+            right: 0 !important;
+            left: initial !important;
+            transform: translate(100%,0) !important;
+            width: 100% !important;
+            max-width: 100%;
+            @include min-desktop{
+                max-width: toRem(900) !important;
+            }
+        }
+    }
+    &.show{
+        .modal-dialog{
+            transform: translate(0,0) !important;
+        }
+    }
+}
+
+.rightAsideModal{
+    .modal{
+        &-body{
+            @include min-tablet{
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+        }
+    }
+}

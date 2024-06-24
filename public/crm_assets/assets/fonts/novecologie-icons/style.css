@@ -1,0 +1,153 @@
+@font-face {
+  font-family: 'novecologie';
+  src:  url('fonts/novecologie.eot?uu0uvn');
+  src:  url('fonts/novecologie.eot?uu0uvn#iefix') format('embedded-opentype'),
+    url('fonts/novecologie.ttf?uu0uvn') format('truetype'),
+    url('fonts/novecologie.woff?uu0uvn') format('woff'),
+    url('fonts/novecologie.svg?uu0uvn#novecologie') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="novecologie-icon-"], [class*=" novecologie-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'novecologie' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.novecologie-icon-arrow-left:before {
+  content: "\e900";
+}
+.novecologie-icon-arrow-right:before {
+  content: "\e901";
+}
+.novecologie-icon-check:before {
+  content: "\e903";
+}
+.novecologie-icon-csv-icon:before {
+  content: "\e907";
+}
+.novecologie-icon-envelope:before {
+  content: "\e908";
+}
+.novecologie-icon-eye:before {
+  content: "\e909";
+}
+.novecologie-icon-facebook:before {
+  content: "\e90a";
+}
+.novecologie-icon-home:before {
+  content: "\e90e";
+}
+.novecologie-icon-linkedIn:before {
+  content: "\e90f";
+}
+.novecologie-icon-phone:before {
+  content: "\e912";
+}
+.novecologie-icon-user:before {
+  content: "\e920";
+}
+.novecologie-icon-youTube:before {
+  content: "\e913";
+}
+.novecologie-icon-folder:before {
+  content: "\e90c";
+}
+.novecologie-icon-calendar:before {
+  content: "\e90b";
+}
+.novecologie-icon-headset:before {
+  content: "\e906";
+}
+.novecologie-icon-chevron-up:before {
+  content: "\e917";
+}
+.novecologie-icon-menu:before {
+  content: "\e916";
+}
+.novecologie-icon-bell:before {
+  content: "\e911";
+}
+.novecologie-icon-chevron-down:before {
+  content: "\e904";
+}
+.novecologie-icon-chevron-right:before {
+  content: "\e902";
+}
+.novecologie-icon-chevron-left:before {
+  content: "\e905";
+}
+.novecologie-icon-search:before {
+  content: "\e91d";
+}
+.novecologie-icon-log-out:before {
+  content: "\e919";
+}
+.novecologie-icon-settings:before {
+  content: "\e91a";
+}
+.novecologie-icon-file-text:before {
+  content: "\e91b";
+}
+.novecologie-icon-trash:before {
+  content: "\e91c";
+}
+.novecologie-icon-edit:before {
+  content: "\e918";
+}
+.novecologie-icon-user-plus:before {
+  content: "\e90d";
+}
+.novecologie-icon-filter:before {
+  content: "\e926";
+}
+.novecologie-icon-clock:before {
+  content: "\e925";
+}
+.novecologie-icon-users:before {
+  content: "\e910";
+}
+.novecologie-icon-unlock:before {
+  content: "\e927";
+}
+.novecologie-icon-lock:before {
+  content: "\e928";
+}
+.novecologie-icon-dots-horizontal-triple:before {
+  content: "\e915";
+}
+.novecologie-icon-close:before {
+  content: "\e914";
+}
+.novecologie-icon-eye-close:before {
+  content: "\e9d1";
+}
+.novecologie-icon-pencil:before {
+  content: "\e91f";
+}
+.novecologie-icon-star:before {
+  content: "\e91e";
+}
+.novecologie-icon-twitter:before {
+  content: "\e924";
+}
+.novecologie-icon-google-plus:before {
+  content: "\e921";
+}
+.novecologie-icon-google:before {
+  content: "\e922";
+}
+.novecologie-icon-instagram:before {
+  content: "\e923";
+}

@@ -1,0 +1,55 @@
+/* Notifications Page Style */
+.notifications{
+    &__header__title{
+        color: darken($color-white, $amount: 50);
+        font-size: toRem(24);
+    }
+    &__body{
+        &__title{
+            color: darken($color-white, $amount: 45);
+            font-size: toRem(18);
+            padding-bottom: toRem(10);
+            border-bottom: 1px solid #dee2e6;
+        }
+    }
+    &__list{
+        overflow: auto;
+        max-height: 70vh;
+        &__items{
+            transition: transform .2s linear;
+            @include mobile-xxs{
+                width: max-content;
+            }
+            &.active{
+                background-color: rgba($color-purple, $alpha: 0.1);
+            }
+            &:not(:first-child){
+                border-top: 1px solid #dee2e6;
+            }
+            &:hover{
+                transform: translateY(-4px);
+                box-shadow: 0 3px 10px 0 #ebe9f1;
+                transition: all 0.2s;
+            }
+            .dropdown-menu--custom{
+                min-width: min-content;
+            }
+            &__card{
+                padding-top: toRem(15);
+                padding-bottom: toRem(15);
+                cursor: pointer;
+                &__avatar{
+                    width: toRem(50);
+                    height: toRem(50);
+                }
+                &__title{
+                    color: lighten($color-black, $amount: 10);
+                }
+                &__text-sm{
+                    color: lighten($color-black, $amount: 30);
+                    font-size: toRem(14);
+                }
+            }
+        }
+    }
+}

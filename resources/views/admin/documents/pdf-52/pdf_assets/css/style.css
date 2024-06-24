@@ -1,0 +1,169 @@
+*,
+*::before,
+*::after
+{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+}
+
+@page {
+    size: A4;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin: 0;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 12pt;
+    font-weight: 400;
+    font-family: sans-serif;
+    margin: auto;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+}
+
+@media screen {
+    body{
+        background-color: #FAFAFA;
+    }
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    user-select: none;
+    pointer-events: none;
+}
+
+table{
+    width: 100%;
+}
+
+table,
+thead,
+tbody,
+tfoot,
+tr,
+th,
+td
+{
+    border-collapse: collapse;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-underline{
+    text-decoration: underline;
+}
+
+.container{
+    display: block;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.d-block{
+    display: block;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.table-layout--fixed{
+    table-layout: fixed;
+}
+
+.page {
+    position: relative;
+    width: 21cm;
+    min-height: 29.7cm;
+    margin: 1cm auto;
+    background-color: #ffffff;
+}
+
+@media print {
+    .page {
+        margin: 0;
+        page-break-after: always;
+    }
+}
+
+.header-shape{
+    padding-bottom: 20px;
+}
+
+.header-logo{
+    padding-bottom: 60px;
+}
+
+.header th,
+.body th,
+.body td
+{
+    vertical-align: top;
+}
+.body tr{
+    display: block;
+}
+
+.body__title{
+    margin-bottom: 25px;
+}
+.body__data{
+    padding-bottom: 15px;
+}
+
+/* Footer Section */
+.footer td{
+    padding-top: 140px;
+}
+
+.footer__fixed{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 60px;
+}
+
+@media print {
+    .footer__fixed{
+        position: fixed;
+    }
+}
+
+.footer td{
+    vertical-align: bottom;
+}
+
+.footer .footer__text{
+    font-size: 12px;
+}
+
+.padding-left{
+    padding-left: 30px;
+    padding-left: calc(30px * var(--tab-count, 1));
+}
+
+.box{
+    display: inline-block;
+    width: 320px;
+    height: 200px;
+    border: 3px solid #000000;
+}

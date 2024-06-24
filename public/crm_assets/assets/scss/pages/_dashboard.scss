@@ -1,0 +1,153 @@
+.dashboard{
+    &__overlay{
+        top: 0;
+        left: 0;
+        z-index: 1;
+        &__form{
+            &-wrapper{
+                padding: 30vh 15px 0;
+                width: 100%;
+                max-width: toRem(500);
+            }
+            background-color: #ffffff;
+            box-shadow: 0 4px 24px 0 rgba(34,41,47,.1);
+            border-radius: .428rem;
+            padding: toRem(20);
+        }
+        ~ .dashboard__content{
+            filter: blur(10px);
+        }
+    }
+    &-title{
+        color: $color-gray;
+        font-size: toRem(28);
+    }
+    &-card{
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        box-shadow: 0 4px 24px 0 rgba(34,41,47,.1);
+        border-radius: .428rem;
+        margin-bottom: toRem(30);
+        max-height: toRem(450);
+        &--auto{
+            max-height: 100%;
+        }
+        &--min{
+            min-height: toRem(450);
+        }
+        &__header{
+            padding: 1.5rem;
+            &__title{
+                font-size: toRem(18);
+                margin-bottom: 0;
+                &--lg{
+                    font-size: toRem(22);
+                    font-weight: 700;
+                    margin: toRem(8) 0;
+                }
+            }
+            &__icon{
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: toRem(20);
+                width: toRem(48);
+                height: toRem(48);
+                border-radius: 50%;
+                color: $color-purple;
+                background-color: rgba($color-purple, $alpha: 0.12);
+                margin-right: toRem(8);
+                &--warning{
+                    color: $color-orange;
+                    background-color: rgba($color-orange, $alpha: 0.12);
+                }
+                &--info{
+                    color: $color-cyan;
+                    background-color: rgba($color-cyan, $alpha: 0.12);
+                }
+                &--danger{
+                    color: $color-danger;
+                    background-color: rgba($color-danger, $alpha: 0.12);
+                }
+                &--success{
+                    color: $color-success;
+                    background-color: rgba($color-success, $alpha: 0.12);
+                }
+            }
+            &__text{
+                color: $color-gray;
+                font-size: toRem(14);
+                margin-bottom: 0;
+            }
+        }
+        &__body{
+            padding: 0 1.5rem 1.5rem;
+            .media-body__title{
+                font-size: toRem(17);
+            }
+            .apexcharts{
+                &-svg{
+                    border-radius: 0 0 .428rem .428rem;
+                }
+            }
+        }
+    }
+    &-list{
+        margin-bottom: 0;
+        &__item:not(:last-child){
+            margin-bottom: toRem(15);
+        }
+    }
+}
+
+.media{
+    margin-bottom: toRem(15);
+    &-header{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: toRem(20);
+        width: toRem(48);
+        height: toRem(48);
+        color: $color-purple;
+        background-color: rgba($color-purple, $alpha: 0.12);
+        margin-right: toRem(8);
+    }
+    &--warning{
+        .media-header{
+            color: $color-orange;
+            background-color: rgba($color-orange, $alpha: 0.12);
+        }
+    }
+    &--info{
+        .media-header{
+            color: $color-cyan;
+            background-color: rgba($color-cyan, $alpha: 0.12);
+        }
+    }
+    &--danger{
+        .media-header{
+            color: $color-danger;
+            background-color: rgba($color-danger, $alpha: 0.12);
+        }
+    }
+    &--success{
+        .media-header{
+            color: $color-success;
+            background-color: rgba($color-success, $alpha: 0.12);
+        }
+    }
+    &-body{
+        &__title{
+            font-size: toRem(20);
+            font-weight: 600;
+            margin-bottom: toRem(1);
+        }
+        &__sub-title{
+            color: $color-gray;
+            font-size: toRem(14);
+            margin-bottom: 0;
+        }
+    }
+}

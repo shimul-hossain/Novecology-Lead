@@ -1,0 +1,67 @@
+/* Custom Dropdowns Style */
+.dropdown--custom{
+    .dropdown{
+        &-menu{
+            box-shadow: 0 5px 25px rgba(34,41,47,.1);
+            max-width: max-content;
+            padding-left: 5px;
+            padding-right: 5px;
+            z-index: 999;
+        }
+        &-toggle::after{
+            display: none;
+        }
+        &-item{
+            border-radius: inherit;
+            &:hover{
+                color: $color-primary;
+            }
+            &:active{
+                color: $color-white;
+                background-color: $color-blue;
+            }
+        }
+    }
+}
+
+.dropdown--dashboard-filter{
+    .dropdown-item{
+        position: relative;
+        padding-left: toRem(26);
+        &__icon{
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.nav-link--dropdown{
+    font-size: toRem(16);
+    font-weight: 700;
+    padding-left: 0 !important;
+    // &::after{
+    //     content: "\F282";
+    //     font-family: bootstrap-icons !important;
+    //     position: absolute;
+    //     top: 50%;
+    //     right: 8%;
+    //     transform: translateY(-45%);
+    //     line-height: 1;
+    //     transition: transform .3s linear;
+    // }
+    // &-menu{
+    //     display: none
+    // }
+    // &.active{
+    //     &::after{
+    //         transform: translateY(-60%) rotate(180deg);
+    //     }
+    // }
+}
+
+// #v-pills-tab.nav-pills .nav-link.nav-link--dropdown.active{
+//     color: $color-primary;
+//     background-color: transparent;
+// }

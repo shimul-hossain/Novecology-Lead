@@ -1,0 +1,61 @@
+/* Common Pagination's Style */
+.pagination-wrapper{
+    nav{
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        padding-top: toRem(24);
+        padding-bottom: toRem(24);
+        .pagination{
+            margin-bottom: 0;
+            .page{
+                &-item{
+                    &:not(:last-child){
+                        margin-right: toRem(5) !important;
+                    }
+                    &:first-child,
+                    &:last-child{
+                        .page-link{
+                            color: $color-primary;
+                        }
+                    }
+                    &.active,
+                    &:hover,
+                    &:focus{
+                        .page-link{
+                            color: $color-white !important;
+                            background-color: $color-blue !important;
+                        }
+                    }
+                    &.disabled{
+                        .page-link{
+                            color: $color-blue !important;
+                            background-color: darken($color-white, $amount: 5) !important;
+                        }
+                        &:hover,
+                        &:focus{
+                            .page-link{
+                                color: $color-blue !important;
+                                background-color: darken($color-white, $amount: 5) !important;
+                            }
+                        }
+                    }
+                }
+                &-link{
+                    display: inline-flex !important;
+                    align-items: center;
+                    justify-content: center;
+                    border: 0 !important;
+                    border-radius: 50% !important;
+                    width: toRem(35) !important;
+                    height: toRem(35) !important;
+                    color: $color-blue !important;
+                    background-color: darken($color-white, $amount: 5) !important;
+                    box-shadow: none !important;
+                    font-weight: $font-primary--sb !important;
+                    @extend %transition;
+                }
+            }
+        }
+    }
+}

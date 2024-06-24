@@ -1,0 +1,25 @@
+/* PDF Section Style */
+.pdf{
+    &-card{
+        background-color: $color-white;
+        padding: toRem(20);
+        &__head{
+            background-color: #f5deb3;
+            &--blue{
+                background-color: #1e90ff;
+            }
+            &--green{
+                background-color: #8fbc8f;
+            }
+            &--orange{
+                background-color: #ffa07a;
+            }
+            &--pink{
+                background-color: #ff69b4;
+            }
+            &--yellow{
+                background-color: #eee8aa;
+            }
+        }
+    }
+}

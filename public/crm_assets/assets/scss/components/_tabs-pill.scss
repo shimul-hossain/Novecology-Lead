@@ -1,0 +1,143 @@
+/* Common Tab's Style */
+#tables-pills-tab.nav-pills{
+    .nav{
+        &-item:not(:last-child){
+            margin-right: 5px;
+        }
+        &-link{
+            color: lighten($color-black, $amount: 10);
+            background-color: darken($color-white, $amount: 10);
+            font-family: $font-primary--li;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            @include min-tablet{
+                padding: toRem(12) toRem(34);
+            }
+            &.active,
+            &:focus-visible{
+                color: currentColor;
+                background-color: $color-white;
+            }
+        }
+    }
+}
+.tab-content{
+    border-radius: toRem(6);
+}
+#pills-tabContent.tab-content{
+    border-top-left-radius: 0;
+}
+#v-pills-tab.nav-pills{
+    .nav{
+        &-link{
+            color: lighten($color-black, $amount: 10);
+            background-color: transparent;
+            @include min-tablet{
+                padding: toRem(12) toRem(34);
+            }
+            &.active,
+            &:focus-visible{
+                color: $color-white;
+                background-color: $color-blue;
+            }
+        }
+    }
+}
+#task-filter-tab.nav-pills{
+    .nav{
+        &-link{
+            color: lighten($color-black, $amount: 10);
+            @extend %transition;
+            @include min-desktop-15{
+                padding: toRem(12) toRem(20);
+            }
+            &::before{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: calc(15px * -1);
+                width: 2px;
+                height: 100%;
+                background-color: $color-primary;
+                border-radius: 2px;
+                opacity: 0;
+            }
+            &.active,
+            &:hover,
+            &:focus-visible{
+                color: $color-primary;
+            }
+            &.active{
+                &::before{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+#v-pills-tabContent{
+    box-shadow: 0 4px 24px 0 rgba(34,41,47,.1);
+}
+
+.user-card__footer{
+    .nav-pills{
+        gap: 15px;
+        .nav-link{
+            color: $color-primary !important;
+            box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.08);
+            &.active{
+                color: #fff !important;
+            }
+        }
+    }
+}
+
+.nav-pills--horizontal{
+    .nav{
+        &-link{
+            color: lighten($color-black, $amount: 10);
+            background-color: transparent;
+            @include min-tablet{
+                padding: toRem(12) toRem(34);
+            }
+            &.active,
+            &:focus-visible{
+                color: $color-white;
+                background-color: $color-blue;
+            }
+        }
+    }
+}
+
+.nav-pills--visible{
+    .nav{
+        &-link{
+            color: $color-primary;
+            background-color: rgba(221, 207, 243, 0.54);
+            border-top: 1px solid $color-blue;
+            border-bottom: 1px solid $color-blue;
+            border-radius: 0;
+            &.active,
+            &:focus-visible{
+                color: $color-white;
+                background-color: $color-blue;
+            }
+        }
+        &-item{
+            &:first-child{
+                .nav-link{
+                    border-left: 1px solid $color-blue;
+                    border-top-left-radius: .25rem;
+                    border-bottom-left-radius: .25rem;
+                }
+            }
+            &:last-child{
+                .nav-link{
+                    border-right: 1px solid $color-blue;
+                    border-top-right-radius: .25rem;
+                    border-bottom-right-radius: .25rem;
+                }
+            }
+        }
+    }
+}

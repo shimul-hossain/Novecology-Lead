@@ -1,0 +1,72 @@
+/* Common User Cards Style */
+.user-card{
+    border-radius: toRem(11);
+    @include min-desktop{
+        width: 100%;
+        max-width: toRem(350);
+        min-width: toRem(350);
+    }
+    @include min-desktop-xxl{
+        max-width: toRem(400);
+        min-width: toRem(400);
+    }
+    @include desktop-xxl{
+        margin-bottom: toRem(20);
+    }
+    &__head{
+        padding: toRem(25) toRem(15);
+        border-radius: inherit;
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 105%;
+            background-color: rgba($color-blue, $alpha: 0.96);
+            border-radius: inherit;
+        }
+        &__wrapper{
+            z-index: 1;
+        }
+    }
+    &__avatar{
+        width: toRem(94);
+        height: toRem(94);
+        border: toRem(8) solid $color-purple;
+    }
+    &__title{
+        color: $color-white;
+        font-size: toRem(22);
+    }
+    &__table{
+        font-family: $font-primary--sb;
+        th,td{
+            padding: toRem(5) toRem(10);
+        }
+        th{
+            vertical-align: top;
+        }
+        tr{
+            
+            th,td{
+                width: 50%;
+            }
+        }
+        &__heade{
+            &::after{
+                content: ":";
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+    &__footer{
+        padding-top: toRem(90);
+        padding-left: toRem(15);
+        padding-right: toRem(15);
+        border-bottom-left-radius: toRem(21);
+        border-bottom-right-radius: toRem(21);
+        box-shadow: 0 toRem(9) toRem(24) rgba($color-black, $alpha: 0.07);
+    }
+}

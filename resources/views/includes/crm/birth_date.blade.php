@@ -1,0 +1,2 @@
+<label class="form-label">Date de naissance</label>
+<input type="text" name="birth_date" id="birth_date{{ $children->id }}" value="{{ $children->birth_date }}" disabled class="date-mask form-control shadow-none foyer_disabled" placeholder="__/__/____">

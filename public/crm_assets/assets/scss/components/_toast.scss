@@ -1,0 +1,51 @@
+/* Common Toast Style */
+.toast{
+    &-wrapper{
+        right: 1rem;
+        top: 1rem;
+        z-index: 9999;
+        width: 100%;
+        max-width: toRem(400);
+        pointer-events: none;
+    }
+    top: 0;
+    right: 0;
+    position: absolute;
+    transform: translateX(130%);
+    transition: transform .3s ease-in-out, opacity .3s linear;
+    box-shadow: 0 4px 24px 0 rgba(34,41,47,.1);
+    border-radius: .428rem;
+    pointer-events: initial;
+    max-width: toRem(300);
+    width: 100%;
+    &-icon{
+        font-size: toRem(25);
+    }
+    &-text{
+        font-size: toRem(17);
+        font-family: $font-primary--md;
+    }
+    &--success{
+        .toast{
+            &-text,
+            &-icon{
+                color: darken($color-success, $amount: 15);
+            }
+        }
+    }
+    &--error{
+        .toast{
+            &-text,
+            &-icon{
+                color: $color-danger
+            }
+        }
+    }
+    .close{
+        font-size: toRem(12);
+    }
+    &.show{
+        position: relative;
+        transform: translateX(0);
+    }
+}

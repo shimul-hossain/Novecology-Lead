@@ -1,0 +1,334 @@
+/* Common Button's Style */
+.primary-btn,
+.secondary-btn,
+.outline-btn{
+	font-size: toRem(12);
+	font-family: $font-primary--sb;
+	text-align: center;
+	@extend %transition;
+}
+.primary-btn{
+	padding: toRem(9) toRem(8);
+	&--lg,
+	&--md,
+	&--sm,
+	&--full,
+	&--blue{
+		width: 100%;
+	}
+	&--lg{
+		max-width: toRem(250);
+	}
+	&--md{
+		max-width: toRem(200);
+	}
+	&--sm{
+		max-width: toRem(170);
+	}
+	&--primary{
+		background-color: $color-primary;
+		&:hover,
+		&:focus-visible{
+			background-color: $color-black;
+		}
+	}
+	&--black{
+		background-color: $color-black;
+		&:hover, 
+		&:focus-visible{
+			background-color: $color-primary;
+		}
+	}
+	&--primary,
+	&--black{
+		color: $color-white;
+		&:hover,
+		&:focus,
+		&:focus-visible{
+			color: $color-white;
+		}
+	}
+	&--transparent{
+		color: $color-primary;
+		font-family: $font-primary--li;
+		font-weight: 300;
+		background-color: transparent;
+		border: 1px solid darken($color-white, $amount: 10);
+		&:hover,
+		&:focus{
+			color: $color-white;
+			background-color: $color-primary;
+			border-color: $color-primary;
+		}
+	}
+	&--sky{
+		color: darken($color-green, $amount: 5);
+		background-color: lighten($color-sky, $amount: 5);
+		&:hover,
+		&:focus-visible{
+			color: $color-black;
+			background-color: lighten($color-pink--light, $amount: 18);
+		}
+	}
+	&--white{
+		color: $color-black;
+		background-color: $color-white;
+		&:hover,
+		&:focus-visible{
+			color: $color-green;
+			background-color: $color-sky;
+		}
+	}
+	&--blue,
+	&--orange{
+		color: $color-white;
+		font-family: $font-primary--bd;
+	}
+	&--blue{
+		background-color: $color-blue;
+	}
+	&--blue-light{
+		background-color: $color-blue-light;
+	}
+	&--orange{
+		background-color: $color-orange;
+	}
+	&--pink{
+		background-color: lighten($color-pink--light, $amount: 18);
+	}
+	&--pink-dark{
+		background-color: lighten($color-pink, $amount: 16);
+	}
+	&--purple{
+		color: $color-primary;
+		background-color: lighten($color-purple, $amount: 40);
+	}
+	&--gray{
+		color: $color-primary;
+		background-color: darken($color-white, $amount: 8);
+	}
+	&--gray-dark{
+		color: $color-black;
+		background-color: darken($color-white, $amount: 8);
+	}
+	&--success{
+		color: lighten($color-green, $amount: 8);
+		background-color: lighten($color-success, $amount: 50);
+	}
+	&--blue,
+	&--orange,
+	&--pink,
+	&--pink-dark,
+	&--purple,
+	&--blue-light,
+	&--gray,
+	&--gray-dark,
+	&--success{
+		&:hover,
+		&:focus,
+		&:focus-visible{
+			color: $color-white;
+			background-color: $color-primary;
+		}
+	}
+	&__icon{
+		font-size: toRem(20);
+	}
+}
+
+.fix-btn-width{
+	@include desktop-xl{
+		width: 100%;
+		max-width: toRem(250);
+	}
+}
+.secondary-btn,
+.outline-btn{
+	padding: toRem(10) toRem(20);
+	border-radius: toRem(5);
+}
+
+.secondary-btn{
+	color: $color-white;
+	background-color: #8e27b3;
+	&--sm{
+		padding: toRem(5) toRem(10);
+	}
+	&--primary{
+		background-color: $color-blue;
+	}
+	&--secondary{
+		background-color: $color-primary;
+		&:hover,
+		&:active,
+		&:focus-visible{
+			color: $color-white !important;
+			background-color: $color-purple !important;
+		}
+	}
+	&:hover,
+	&:active,
+	&:focus-visible{
+		color: $color-white;
+		background-color: $color-primary;
+	}
+}
+
+.outline-btn{
+	color: $color-gray;
+	border: 1px solid darken($color-white, $amount: 16);
+	background-color: transparent;
+	&--sm{
+		padding: toRem(5) toRem(10);
+	}
+	&:hover,
+	&:focus,
+	&:focus-visible{
+		color: $color-white;
+		background-color: $color-primary;
+		border-color: $color-primary;
+	}
+}
+
+.back-btn{
+	color: $color-white;
+	@extend %transition;
+	@include min-desktop{
+		position: absolute;
+		top: 0;
+		transform: translateY(50%);
+	}
+	@include desktop{
+		margin-bottom: toRem(15);
+	}
+	&:hover,
+	&:focus,
+	&:focus-visible{
+		color: $color-pink;
+	}
+}
+
+.add-btn,
+.remove-btn{
+	font-size: toRem(18);
+	width: toRem(30);
+	height: toRem(30);
+	background-color: transparent;
+	@extend %transition;
+}
+
+.add-btn{
+	color: $color-blue;
+	border: 1px solid $color-blue;
+	&:hover,
+	&:focus-visible{
+		color: $color-white;
+		background-color: $color-primary;
+		border-color: $color-primary;
+	}
+}
+
+.remove-btn{
+	color: $color-danger;
+	border: 1px solid $color-danger;
+	&:hover,
+	&:focus-visible{
+		color: $color-white;
+		background-color: $color-danger;
+		border-color: $color-danger;
+	}
+}
+
+.next-btn{
+	color: $color-white;
+	background-color: $color-blue;
+	width: toRem(30);
+	height: toRem(30);
+	@extend %transition;
+	&:hover,
+	&:focus-visible{
+		color: $color-white;
+		background-color: $color-cyan;
+	}
+}
+
+.actions-btn{
+	font-size: toRem(16);
+	color: $color-gray;
+}
+
+.csv-btn{
+	font-size: toRem(28);
+	color: $color-blue;
+}
+
+.badge-btn{
+	font-size: toRem(13);
+	font-family: $font-primary--sb;
+	padding: toRem(5) toRem(15);
+	color: $color-primary;
+	background-color: rgba($color-primary, $alpha: 0.1);
+	&--warning{
+		color: $color-orange;
+		background-color: rgba($color-orange, $alpha: 0.1);
+	}
+	&--info{
+		color: $color-cyan;
+		background-color: rgba($color-sky, $alpha: 0.4);
+	}
+	&--success{
+		color: lighten($color-green, $amount: 20);
+		background-color: rgba($color-success, $alpha: 0.1);
+	}
+	&--danger{
+		color: $color-danger;
+		background-color: rgba($color-danger, $alpha: 0.1);
+	}
+}
+
+.icon-btn{
+	color: lighten($color-black, $amount: 35);
+	font-size: toRem(16);
+	width: toRem(30);
+	height: toRem(30);
+	border: 1px solid $color-primary;
+	border-radius: toRem(4);
+	background-color: rgba($color-primary, $alpha: 0.4);
+	@extend %transition;
+	&--danger{
+		border-color: $color-danger;
+		background-color: rgba($color-danger, $alpha: 0.3);
+	}
+	&--info{
+		border-color: $color-orange;
+		background-color: rgba($color-orange, $alpha: 0.3);
+	}
+	&:hover{
+		color: $color-white;
+		background-color: $color-primary;
+		border-color: $color-primary;
+	}
+}
+
+.scroll-top{
+	bottom: 3%;
+	right: 1%;
+	display: none;
+	cursor: pointer;
+	z-index: 7;
+	@include mobile{
+		bottom: 2%;
+	}
+	&__btn{
+		width: 2.8rem;
+		height: 2.8rem;
+		font-size: 1.1rem;
+		color: $color-white;
+		background-color: $color-primary;
+		@extend %transition;
+		&:hover,
+		&:focus-visible{
+			background-color: lighten($color-primary, $amount: 5);
+		}
+	}
+}

@@ -1,0 +1,37 @@
+.todo{
+    &-list{
+        overflow: auto;
+        max-height: 70vh;
+        &__items{
+            &.active{
+                background-color: #efefef;
+            }
+            @include mobile-xxs{
+                width: max-content;
+            }
+        }
+    }
+    &__avatar{
+        width: toRem(35);
+        height: toRem(35);
+    }
+    &__due-date{
+        font-size: toRem(14);
+    }
+    &-list__items{
+        position: relative;
+        transition: transform .2s linear;
+        &__wrapper{
+            padding: toRem(10) 0;
+            cursor: pointer;
+        }
+        &:not(:first-child){
+            border-top: 1px solid #dee2e6;
+        }
+        &:hover{
+            transform: translateY(-4px);
+            box-shadow: 0 3px 10px 0 #ebe9f1;
+            transition: all 0.2s;
+        }
+    }
+}

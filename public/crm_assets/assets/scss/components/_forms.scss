@@ -1,0 +1,233 @@
+/* Common Forms Style */
+.form{
+    &__title{
+        color: $color-primary;
+        font-size: toRem(26);
+        line-height: toRem(35);
+        font-family: $font-primary--bd;
+        &::after{
+            content: "";
+            position: absolute;
+            bottom: toRem(-8);
+            left: 50%;
+            transform: translateX(-50%);
+            width: toRem(53);
+            height: toRem(3);
+            background-color: #E3E3E3;
+        }
+        &__inner{
+            color: lighten($color-black, $amount: 5);
+            font-family: $font-primary--li;
+        }
+        margin-bottom: toRem(55);
+    }
+    &__text{
+        color: lighten($color-gray, $amount: 15);
+        font-size: toRem(18);
+        font-family: $font-primary--li;
+    }
+    &-group{
+        margin-bottom: toRem(16);
+        &__icon{
+            top: toRem(14.5);
+            left: toRem(18);
+            color: $color-primary;
+            @include min-tablet{
+                left: toRem(25);
+            }
+        }
+        &__password-toggler{
+            top: toRem(12);
+            right: toRem(16);
+            color: lighten($color-gray, $amount: 10);
+            @include min-tablet{
+                right: toRem(25);
+            }
+        }
+        .invalid-feedback{
+            color: $color-primary;
+        }
+    }
+    &-label{
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+    }
+    &-control{
+        color: $color-gray;
+        border-color: darken($color-white, $amount: 25);
+        height: toRem(45);
+        text-shadow: none;
+        padding-left: toRem(20);
+        padding-right: toRem(20);
+        &--icon-gap{
+            padding-left: toRem(54);
+            padding-right: toRem(54);
+        }
+        &::placeholder{
+            color: lighten($color-gray, $amount: 10);
+            opacity: 1;
+        }
+        &:focus{
+            color: $color-gray;
+            border-color: $color-primary;
+            background-color: inherit;
+        }
+        &--filled{
+            color: darken($color-gray, $amount: 8);
+            border-color: darken($color-white, $amount: 5);
+            background-color: darken($color-white, $amount: 5);
+            &:focus{
+                background-color: darken($color-white, $amount: 5);
+            }
+        }
+        &.highlight,
+        &:disabled,
+        &[readonly]{
+            background-color: rgba($color-purple, $alpha: 0.1);
+        }
+    }
+    &-btn__wrapper{
+        gap: toRem(15);
+        @extend %transition;
+        @include desktop-xl{
+            flex-direction: column;
+        }
+        @include min-desktop-18{
+            justify-content: space-between;
+        }
+    }
+}
+
+textarea.form-control{
+    min-height: toRem(45);
+}
+
+#login-form{
+    max-width: toRem(420);
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid,
+.form-control.is-invalid:focus, .was-validated .form-control:invalid:focus,
+.form-control.is-valid, .was-validated .form-control:valid,
+.form-control.is-valid:focus, .was-validated .form-control:valid:focus{
+    border-color: $color-primary;
+    background-image: none;
+}
+.custom-select{
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='gray' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 1.5rem center/20px 20px;
+    cursor: pointer;
+}
+.custom-control{
+    margin-bottom: toRem(5);
+    &-label{
+        font-size: toRem(16);
+        color: lighten($color-black, $amount: 10);
+        cursor: pointer;
+        &::before{
+            border-radius: 0 !important;
+            border-color: lighten($color-gray, $amount: 48);
+        }
+    }
+    &-input{
+        &:focus{
+            &:not(:checked) ~ .custom-control-label::before{
+                border-color: lighten($color-gray, $amount: 5);
+            }
+            ~ .custom-control-label::before{
+                box-shadow: none;
+            }
+        }
+        &:checked ~ .custom-control-label{
+            &::before{
+                background-color: transparent;
+                border: 0;
+            }
+            &::after{
+                background-color: $color-blue;
+            }
+        }
+        &:not(:disabled):active ~ .custom-control-label::before{
+            background-color: transparent;
+        }
+    }
+}
+
+.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before{
+    background-color: transparent;
+    border-color: lighten($color-gray, $amount: 5);
+}
+
+.custom-switch{
+    padding-left: 2.5rem;
+    .custom-control-label{
+        &::before {
+            left: -2.5rem;
+            width: 2rem;
+            height: 1.2rem;
+            border-radius: 2rem !important;
+            background-color: darken($color-white, $amount: 18);
+            border-color: darken($color-white, $amount: 18);
+        }
+        &::after{
+            top: 0.48rem;
+            left: calc(-2.5rem + 2px);
+            background-color: $color-white;
+        }
+    }
+    .custom-control-input{
+        &:checked ~ .custom-control-label{
+            &::before{
+                border-color: $color-purple;
+                background-color: $color-purple;
+            }
+            &::after{
+                transform: translateX(1rem);
+            }
+        }
+        &:active{
+            &::before{
+                border-color: rgba($color-purple, $alpha: 0.2);
+                background-color: rgba($color-purple, $alpha: 0.2);
+            }
+        }
+        &:focus{
+            &::before{
+                border-color: $color-purple;
+            }
+        }
+        &:not(:disabled):active ~ .custom-control-label::before{
+            border-color: rgba($color-purple, $alpha: 0.2);
+            background-color: rgba($color-purple, $alpha: 0.2);
+        }
+        &:focus:not(:checked) ~ .custom-control-label::before{
+            border-color: rgba($color-purple, $alpha: 0.2);
+        }
+    }
+}
+
+.setting-form{
+    padding: toRem(15);
+    &__user-avatar{
+        width: toRem(80);
+        height: toRem(80);
+        border-radius: 8px;
+    }
+}
+
+// .custom-control-input.is-valid ~ .custom-control-label, .was-validated .custom-control-input:valid ~ .custom-control-label{
+//     color: rgba($color-primary, $alpha: 0.9);
+// }
+// .custom-control-input.is-valid ~ .custom-control-label::before, .was-validated .custom-control-input:valid ~ .custom-control-label::before{
+//     border-color: darken($color-white, $amount: 15);
+// }
+// .custom-control-input.is-valid:checked ~ .custom-control-label::before, .was-validated .custom-control-input:valid:checked ~ .custom-control-label::before{
+//     background-color: $color-secondary;
+// }
+// .custom-control-input.is-valid:focus:not(:checked) ~ .custom-control-label::before, .was-validated .custom-control-input:valid:focus:not(:checked) ~ .custom-control-label::before{
+//     background-color: rgba($color-secondary, $alpha: 0.3);
+// }
+// .custom-control-input.is-valid:checked ~ .custom-control-label::before, .was-validated .custom-control-input:valid:checked ~ .custom-control-label::before,
+// .custom-control-input.is-valid:focus:not(:checked) ~ .custom-control-label::before, .was-validated .custom-control-input:valid:focus:not(:checked) ~ .custom-control-label::before{
+//     border-color: $color-secondary;
+// }

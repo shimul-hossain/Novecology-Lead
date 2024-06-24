@@ -1,0 +1,28 @@
+/* Common Avatar Group Style Style */
+.avatar-group{
+    &__image{
+        font-size: toRem(8);
+        &-wrapper{
+            width: toRem(28);
+            height: toRem(28);
+            margin-left: -5px;
+            margin-right: -5px;
+            border: 2px solid $color-white;
+            cursor: pointer;
+            transition: transform .25s ease;
+            transform: scale(1) translateY(0);
+            &:nth-last-child(2){
+                margin-right: 0;
+            }
+            &:hover,
+            &:focus{
+                z-index: 1;
+                transform: scale(1.1) translateY(-10%);
+            }
+        }
+    }
+    &__more{
+        margin-left: toRem(5);
+        line-height: 2;
+    }
+}

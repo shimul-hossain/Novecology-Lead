@@ -1,0 +1,29 @@
+/* Footer Section Style */
+.footer{
+    color: $color-white;
+    background-color: $color-blue;
+    padding: toRem(40) 0;
+    &__list__link{
+        font-family: $font-primary--li;
+        &:hover,
+        &:focus{
+            text-decoration: underline;
+        }
+    }
+    &__social-list{
+        @include min-desktop{
+            position: absolute;
+        }
+        &__link{
+            width: toRem(50);
+            height: toRem(50);
+            background-color: lighten($color-primary, $amount: 5);
+            @extend %transition;
+            &:hover,
+            &:focus{
+                color: $color-primary;
+                background-color: $color-white;
+            }
+        }
+    }
+}

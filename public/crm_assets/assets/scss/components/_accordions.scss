@@ -1,0 +1,182 @@
+/* Common AccordionS Style */
+.lead{
+    &__column{
+        @include min-desktop-xxl{
+            width: 100%;
+            max-width: toRem(1080);
+        }
+    }
+   
+    &__card{
+        padding: toRem(20) toRem(10);
+        border-radius: toRem(11) !important;
+        box-shadow: 0 toRem(9) toRem(24) rgba($color-black, $alpha: 0.07);
+        &:not(:last-child){
+            margin-bottom: toRem(30);
+        }
+        @include min-desktop-xl{
+            padding: toRem(25);
+        }
+        &__check{
+            color: darken($color-white, $amount: 18);
+            font-size: toRem(30);
+            &.verified{
+                color: $color-success;
+                &::after{
+                    display: none;
+                }
+            }
+        }
+        &__toggler{
+            color: $color-blue;
+            font-size: toRem(18);
+            @include min-tablet{
+                font-size: toRem(20);
+            }
+            &__icon{
+                font-size: toRem(30);
+                color: $color-primary;
+                @extend %transition;
+            }
+            .edit-toggler{
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+            &[aria-expanded="true"]{
+                .lead__card__toggler__icon{
+                    transform: rotate(180deg);
+                }
+                .edit-toggler{
+                    opacity: 1;
+                    visibility: visible;
+                    pointer-events: all;
+                }
+            }
+            &:hover{
+                color: $color-blue;
+            }
+        }
+        &__loader__icon{
+            max-width: toRem(65);
+            fill: $color-purple;
+        }
+        .custom-space{
+            @include min-desktop-xl{
+                margin-left: 2rem;
+            }
+        }
+    }
+}
+.role{
+    &__card{
+        border: 1px solid lighten($color-gray, $amount: 60);
+        border-bottom: 1px solid lighten($color-gray, $amount: 60) !important;
+        border-radius: toRem(8) !important;
+        &:not(:last-child){
+            margin-bottom: toRem(15);
+        }
+        &__title{
+            color: $color-primary;
+            font-size: toRem(18);
+            @include mobile{
+                font-size: toRem(16);
+            }
+            &:hover{
+                color: $color-primary;
+                .icon-btn{
+                    opacity: 1;
+                }
+            }
+            &:hover ~ .role__card__btn-wrapper{
+                opacity: 1;
+            }
+            &[aria-expanded="true"]{
+                .role__card__indicate-btn{
+                    transform: rotate(-180deg);
+                }
+            }
+            &[aria-expanded="true"] ~ .role__card__btn-wrapper{
+                opacity: 1;
+            }
+        }
+        &__indicate-btn{
+            @extend %transition;
+        }
+        &__btn-wrapper{
+            @extend %transition;
+            @include mobile{
+                bottom: 0;
+                left: 0;
+            }
+            @include min-mobile{
+                top: 0;
+                right: toRem(50);
+                opacity: 0;
+                height: 100%;
+            }
+            &:hover{
+                opacity: 1;
+            }
+        }
+        &__sub-title{
+            color: $color-primary;
+            font-size: toRem(16);
+            @include mobile{
+                font-size: toRem(14);
+            }
+            &--level{
+                &-3{
+                    padding-left: toRem(30);
+                    @include mobile-xxs{
+                        padding-left: toRem(0);
+                    }
+                }
+                &-4{
+                    padding-left: toRem(60);
+                    @include mobile-xxs{
+                        padding-left: toRem(0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+#filterAccordion{
+    .card{
+        &-header{
+            padding: 0;
+            .btn{
+                color: $color-gray;
+                position: relative;
+                &::after{
+                    content: "\F282";
+                    font-family: bootstrap-icons !important;
+                    position: absolute;
+                    top: 50%;
+                    right: 8%;
+                    transform: translateY(-45%) rotate(0);
+                    line-height: 1;
+                    transition: transform .3s linear;
+                }
+                &[aria-expanded="true"]{
+                    &::after{
+                        transform: translateY(-45%) rotate(-180deg);
+                    }
+                }
+                &:hover,
+                &:focus-visible,
+                &[aria-expanded="true"]
+                {
+                    color: $color-primary;
+                }
+            }
+        }
+        &-body{
+            .form-group:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+}

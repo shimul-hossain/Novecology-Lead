@@ -1,0 +1,410 @@
+.calendar{
+    overflow: auto;
+    /* height: 100%; */
+    height: calc((var(--vh,1vh) * 100) - 250px);
+    min-height: 400px;
+}
+
+.calendar__row{
+    display: flex;
+}
+
+.calendar__row__item{
+    width: 140px;
+    flex-shrink: 0;
+}
+
+.calendar__row__container{
+    display: grid;
+    grid-template-columns: repeat(var(--day-length), minmax(110px, 1fr));
+    width: 100%;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.calendar-header .calendar__row__container{
+    grid-template-rows: 50px;
+}
+
+.calendar-body .calendar__row__container{
+    grid-template-rows: repeat(var(--total-event-layer, 1), minmax(100px, auto));
+}
+
+.calendar-body .calendar__row__container__col{
+    grid-row: 1 / -1;
+}
+
+.calendar__row__container__event-wrapper{
+    grid-column: 1 / -1;
+}
+
+.calendar__row__item__filter__input{
+    width: 100%;
+}
+
+.calendar__row__container__col__date{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #000000;
+    font-size: 14px;
+}
+
+.calendar__row__item,
+.calendar__row__container__col
+{
+    border-bottom: 1px solid rgba(166, 168, 179, 0.12);
+}
+
+.calendar-header .calendar__row__item,
+.calendar-header .calendar__row__container__col
+{
+    border-top: 1px solid rgba(166, 168, 179, 0.12);
+}
+
+.calendar__row__item,
+.calendar__row__container__col:not(:last-child)
+{
+    border-right: 1px solid rgba(166, 168, 179, 0.12);
+}
+
+.calendar__row__item__list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    height: 100%;
+}
+
+.calendar__row__item__list__text{
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.calendar-header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 2;
+}
+
+.calendar-header__top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calendar-header__top__btn{
+    border: 0;
+    background-color: #f7f7f7;
+    line-height: 1;
+    padding: 8px;
+    transition: all .3s ease-in-out;
+}
+
+.calendar-header__top__btn:hover,
+.calendar-header__top__btn:focus-visible
+{
+    color: #4D056E;
+    background-color: #dfdddd;
+}
+
+.calendar-header__top__title{
+    font-size: 15px;
+    font-family: "SF Pro Display Bold", sans-serif;
+    margin-bottom: 0;
+}
+
+.calendar__row__item__filter{
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.calendar__row__item__filter__input{
+    border: 0;
+    background-color: #f7f7f7;
+    padding: 3px;
+    padding-left: 10px;
+}
+
+.calendar__row__item__filter__input::placeholder{
+    color: #000000;
+    opacity: 1;
+}
+
+.calendar__row__container__event{
+    grid-column: var(--event-start, 1)/ calc(var(--event-end, 1) + 1);
+    grid-row: var(--event-layer, 1) / span 1;
+    color: var(--event-color);
+    position: relative;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-right: 4px;
+}
+
+.calendar__row__container__event__card{
+    gap: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    isolation: isolate;
+    cursor: pointer;
+    border-left: 3px solid currentColor;
+    /* height: 100%; */
+}
+
+.calendar__row__container__event__card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.calendar__row__container__event__text{
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #000000;
+}
+
+.calendar__row__container__event__indicator{
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 10rem;
+}
+
+.calendar__row__container__event__details{
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    background: #fff;
+    border: 1px solid rgba(166, 168, 179, 0.2);
+    color: currentColor;
+    padding: 15px 20px;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    z-index: 2;
+    transition: all .25s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    width: max-content;
+}
+
+.calendar__row__container__event__card:is(:hover, :focus-visible) ~ .calendar__row__container__event__details{
+    opacity: 1;
+    visibility: visible;
+}
+
+.calendar__row__container__event__details::after,
+.calendar__row__container__event__details::before {
+    content: "";
+    bottom: 100%;
+    left: 30%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.calendar__row__container__event__details::before {
+    border-bottom-color: rgba(166, 168, 179, 0.2);
+    border-width: 8px;
+    margin-left: -8px;
+}
+
+.calendar__row__container__event__details::after {
+    border-bottom-color: #fff;
+    border-width: 6px;
+    margin-left: -6px;
+}
+
+.calendar__row__container__event__details__title{
+    font-size: 14px;
+    margin: 0;
+    color: currentColor;
+}
+
+.calendar__row__container__event__details__text{
+    margin-top: 4px;
+    font-size: 12px;
+    margin-bottom: 0;
+    font-weight: 500;
+    color: rgba(81, 86, 93, 0.7);
+}
+
+.calendar__row__container__event__arrow{
+    width: 100%;
+    background-color: var(--event-color);
+    color: #000000;
+    border: 0;
+    line-height: 0;
+    display: block;
+    padding: 2px 1px;
+}
+
+.calendar__week__row{
+    display: grid;
+    grid-template-columns: repeat(var(--day-length), minmax(250px, 1fr));
+    width: 100%;
+}
+
+.calendar__week__col{
+    border-bottom: 2px solid #eaecf1;
+    border-right: 2px solid #eaecf1;
+}
+
+.calendar__week__col,
+.calendar-filters
+{
+    background-color: #f2f3f8;
+}
+
+.calendar-filters,
+.calendar__week__col__header
+{
+    border-top: 2px solid #eaecf1;
+}
+
+.calendar__week__col:first-child{
+    border-left: 2px solid #eaecf1;
+}
+
+.calendar__week__col__header{
+    position: sticky;
+    top: 0;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.calendar__week__col__header__top,
+.calendar__week__col__header__bottom
+{
+    padding: 8px;
+    border-bottom: 2px solid #eaecf1;
+}
+
+.calendar__week__col__header__top__title{
+    font-size: 16px;
+}
+
+.calendar__week__col__header__top__number{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    color: var(--day-color);
+    font-size: 16px;
+    font-weight: 900;
+    isolation: isolate;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.calendar__week__col__header__top__number::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: currentColor;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+.week-event{
+    margin: 8px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.week-event__arrow{
+    width: 100%;
+    display: block;
+    line-height: 0;
+    color: #ffffff;
+    background-color: #000000;
+    border: 0;
+    padding: 2px 1px;
+}
+
+.week-event__arrow.week-event__arrow--top{
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.week-event__arrow.week-event__arrow--bottom{
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.week-event__header,
+.week-event__body
+{
+    padding: 5px;
+}
+
+.week-event__header{
+    color: #ffffff;
+    background-color: var(--event-color, #4D056E);
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 900;
+    text-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.week-event__body__list{
+    margin-bottom: 0;
+}
+
+.calendar__week__col__header__bottom,
+.week-event__body__list__item
+{
+    color: #5E5873;
+}
+
+.calendar__week__col__header__bottom{
+    font-size: 14px;
+}
+
+.calendar__week__col__header__bottom__title{
+    margin-right: 8px;
+}
+
+.week-event__body__list__item{
+    font-size: 13px;
+}
+
+.week-event__body__list__item__title{
+    color: #656b96;
+    margin-left: 5px;
+}
+
+.calendar-filters{
+    padding: 20px;
+}
+
+.calendar-filters .form-label{
+    font-size: 12px;
+}
